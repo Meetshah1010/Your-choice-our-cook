@@ -35,49 +35,41 @@ if(isset($_REQUEST['rsignup']))
 ?>
 <div class="container ">
     <div class="row mt-4 mb-4">
-      <div class="col-sm-3 ">
-				<div class="card text-white bg-danger mb-3">
+      <div class="col-sm-7 ">
+				<div class="card text-white mb-3" style="background-color:#a3c2c2">
         <div class="card-header">Ram yha pr tuje jo details dalni hai woh dal dena</div>
 					<div class="card-body"></div>
 					<h4 class="card-title"></h4>
 					<a class="btn text-white" href="requests.php">View</a>
 				</div>
       </div>
-      <div class="col-sm-3 ">
-				<div class="card text-white bg-danger mb-3">
-					<div class="card-header">Ram yha pr tuje jo details dalni hai woh dal dena</div>
-					<div class="card-body"></div>
-					<h4 class="card-title"></h4>
-					<a class="btn text-white" href="requests.php">View</a>
-				</div>
-			</div>
-      <div class="col-sm-6 ">
-        <form action="" method="POST" style="box-shadow: 10px 0px 10px 0px lightgrey; border-style: outset;
-         padding : 20px 20px 20px 20px; ">
-          <div class="form-group">
-            <img src="https://img.icons8.com/material-sharp/24/000000/user.png"/>
-            <label class="pl-2" style="font-weight: bold;" for="name">Name</label><br>
-            <input type="text" class="form-control" name="rname" placeholder="Enter your name">
+
+      <div class="col-sm-5">
+        <form action="" method="POST" style="border-style: outset;
+         padding : 20px 20px 20px 20px;border-radius:10px; background-color:#e6faff;">
+          <div class="form-group" >
+            <input type="text" class="form-control" style="border-radius:20px;border:solid;" name="rname" 
+            placeholder="Enter your name" >
           </div>
           <div class="form-group">
-            <img src="https://img.icons8.com/ios/24/000000/email.png"/>
-            <label class="pl-2" style="font-weight: bold;" for="email">Email</label><br>
-            <input class="form-control" type="email" name="remail" placeholder="E-mail" >
+            <input class="form-control" type="email" name="remail" placeholder="E-mail"
+             style="border-radius:20px;border:solid;" >
           </div>
           <div class="form-group">
-            <img src="https://img.icons8.com/material-sharp/24/000000/user.png"/>
-            <label class="pl-2" style="font-weight: bold;">Choose the feild</label><br>
-            <select name="feils" id="feild" class="form-control">
+            <select name="feils" id="feild" class="form-control" style="border-radius:20px;border:solid;">
               <option value="customer">Customer</option>
               <option value="cook">Cook</option>
             </select>
           </div>
-          <div class="form-group">
-            <img src="https://img.icons8.com/android/24/000000/key.png"/>
-            <label for="password" class="pl-2" style="font-weight: bold;">Password</label><br>
-            <input type="password" name="rpassword" class="form-control" placeholder="Password" id="rpassword" >
-            <label style="font-weight :bold;">Show password</label>
-            <input type="checkbox" onclick="myFunction()">
+            <div class="form-group">
+              <input type="password" name="rpassword" class="form-control" placeholder="Password" 
+              id="rpassword"
+             style="border-radius:20px;border:solid;">
+            <!--- <img src="https://img.icons8.com/material-sharp/24/000000/visible.png">-->
+           
+          
+           <label class="mt-3">Show password</label>
+            <input class="pl-2" type="checkbox" onclick="myFunction()">
             <script>
               function myFunction() {
                 var x = document.getElementById("rpassword");
@@ -91,12 +83,17 @@ if(isset($_REQUEST['rsignup']))
                 }
                 }
             </script>
-
-          </div>
-          <button type="submit" class="btn-success mt-4 btn-block shadow-sm font-weight-bold " name="rsignup">
-            Sign up</button>
+             </div>
+          <div class="form-group">
+				<label class="checkbox-inline"><input type="checkbox" required> I accept all the <a href="#">
+          T&C*</a></label>
+				
+			</div>
+          <button type="submit" class="mt-1" name="rsignup" 
+          style="border-radius:4px;border:none;padding: 14px 28px;background-color:#adebad">Sign up</button>
             <?php  if(isset($regmsg)) {echo $regmsg;}?>
         </form>
       </div>	
     </div>
   </div>
+  
