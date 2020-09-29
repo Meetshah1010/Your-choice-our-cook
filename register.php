@@ -75,7 +75,22 @@ if(isset($_REQUEST['rsignup']))
           <div class="form-group">
             <img src="https://img.icons8.com/android/24/000000/key.png"/>
             <label for="password" class="pl-2" style="font-weight: bold;">Password</label><br>
-            <input type="password" name="rpassword" class="form-control" placeholder="Password" >
+            <input type="password" name="rpassword" class="form-control" placeholder="Password" id="rpassword" >
+            <input type="checkbox" onclick="myFunction()">
+            <script>
+              function myFunction() {
+                var x = document.getElementById("rpassword");
+                if (x.type === "password") 
+                {
+                  x.type = "text";
+                }
+                else 
+                {
+                  x.type = "password";
+                }
+                }
+            </script>
+
           </div>
           <button type="submit" class="btn-success mt-4 btn-block shadow-sm font-weight-bold " name="rsignup">
             Sign up</button>
