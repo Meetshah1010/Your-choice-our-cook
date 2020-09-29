@@ -76,6 +76,7 @@ if(isset($_REQUEST['rsignup']))
             <img src="https://img.icons8.com/android/24/000000/key.png"/>
             <label for="password" class="pl-2" style="font-weight: bold;">Password</label><br>
             <input type="password" name="rpassword" class="form-control" placeholder="Password" id="rpassword" >
+            <label style="font-weight :bold;">Show password</label>
             <input type="checkbox" onclick="myFunction()">
             <script>
               function myFunction() {
