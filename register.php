@@ -2,59 +2,43 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Create an account</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/css1.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<title>Create an account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" type="text/css" href="css/register.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/css1.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"></script>
 <body>
-<style>
-body{
-  text-align:center;
-  background-image:url("images/dish 4.jpg");
-}
-</style>
-        <h2 class="text-center" style="margin-top: 50px; color:white;" id="contact">Create an account</h2> 
-        <form action="" method="POST" style="padding : 20px 20px 20px 20px;border-radius:10px; 
-         margin :0px 400px 0px 400px; ">
-          <div class="form-group" >
-            <input type="text" class="form-control" required style="border-radius:20px;border:solid;" name="rname" 
-            placeholder="Name" >
-          </div>
-          <div class="form-group">
-            <input class="form-control" type="email" name="remail" required placeholder="E-mail"
-             style="border-radius:20px;border:solid;" >
-          </div>
-          <div class="form-group">
-            <select name="feils" id="feild" class="form-control"  style="border-radius:20px;border:solid;">
-              <option value="customer">Customer</option>
-              <option value="cook">Cook</option>
-            </select>
-          </div>
-            <div class="form-group">
-              <input type="password" name="rpassword" class="form-control" required placeholder="Password" 
-              id="rpassword"
-             style="border-radius:20px;border:solid;">
-            <!--- <img src="https://img.icons8.com/material-sharp/24/000000/visible.png">-->
-           
-          
-           <label class="mt-3" style="color:white;">Show password</label>
-            <input class="pl-2" type="checkbox" onclick="myFunction()">
-            <script>
-              function myFunction() {
-                var x = document.getElementById("rpassword");
-                if (x.type === "password") 
+  <h2 class="text-center" style="margin-top: 50px; color:white;" id="contact">Create an account</h2> 
+    <form action="" method="POST">
+      <div class="form" >
+        <input type="text" class="form-control" required style="" name="rname" placeholder="Name" >
+      </div>
+      <div class="form">
+        <input class="form-control" type="email" name="remail" required placeholder="E-mail">
+      </div>
+      <div class="form">
+        <select name="feild" id="feild" class="form-control">
+          <option value="customer">Customer</option>
+          <option value="cook">Cook</option>
+        </select>
+      </div>
+      <div class="form">
+        <input type="password" name="rpassword" class="form-control" required placeholder="Password" id="rpassword">
+        <label class="mt-3" style="color:white;">Show password</label>
+        <input class="pl-2" type="checkbox" onclick="myFunction()">
+        <script>
+          function myFunction() {
+            var x = document.getElementById("rpassword");
+              if (x.type === "password") 
                 {
                   x.type = "text";
                 }
@@ -63,18 +47,16 @@ body{
                   x.type = "password";
                 }
                 }
-            </script>
-             </div>
-          <div class="form-group">
-				<b><label class="checkbox-inline" style="color:white;"><input type="checkbox" required> I accept all the <a style="color:red;" href="#">
-          T&C*</a></label></b>
-				
-			</div>
-          <button type="submit" class="mt-1 font-weight-bold" name="rsignup" 
-          style="border-radius:4px;border:none;padding: 14px 28px;background-color:#adebad">Sign Up</button>
-        </form>
-   
-    
-  </body>
+          </script>
+       </div>
+        <div class="form">
+          <b><label class="checkbox-inline" style="color:white;"><input type="checkbox" required> I accept all the 
+          <a style="color:red;" href="#">T&C*</a></label></b>
+        </div>
+        <div class="form">
+          <button type="submit" class="mt-1 font-weight-bold" name="rsignup">Sign Up</button>
+        </div>
+      </form>
+</body>
 </html>
   
