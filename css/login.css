@@ -1,0 +1,19 @@
+.login{
+    
+    margin-left: 800px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background: url('../images/login.jpg');
+    padding: 20px 20px 20px 20px;
+}
+.form-group{
+    width: 300px;
+    border-radius:20px;
+    border:solid;
+    outline: none;
+    height: 40px;
+    color: #000;
+    font-size: 16px;
+    border-radius: 10px;
+}

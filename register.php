@@ -1,74 +1,55 @@
-<?php 
-#include('connection.php');
-if(isset($_REQUEST['rsignup']))
-{
-	if(($_REQUEST['rname']=="") || ($_REQUEST['remail'] == "") || ($_REQUEST['rpassword'] == ""))
-	{
-		$regmsg = '<div class="alert alert-warning mt-2"role="alert">All fields are required</div>';
-    }
-    /*
-	else
-	{
-		$sql = "SELECT r_email FROM requesterlogin_tb WHERE r_email='".$_REQUEST['remail']."'";
-		$result = $conn->query($sql);
-		if($result->num_rows==1)
-		{
-			$regmsg = '<div class="alert alert-warning mt-2"role="alert">E-mail id is already Registered</div>';
-		}
-		else
-		{
-		$rname = $_REQUEST['rname'];
-		$remail = $_REQUEST['remail'];
-		$rpassword  = $_REQUEST['rpassword'];
-		$sql = "INSERT INTO requesterlogin_tb(r_name,r_email,r_password) VALUES('$rname','$remail','$rpassword')";
-		if($conn->query($sql)==TRUE)
-		{
-		$regmsg = '<div class="alert alert-success mt-2"role="alert">Account sucessfully created</div>';
-		}
-		else
-		{
-			$regmsg = '<div class="alert alert-danger mt-2"role="alert">Unable to create account</div>';
-		}
-	}
-}*/
-}
-?>
-<div class="container ">
-    <div class="row mt-4 mb-4">
-      <div class="col-sm-7 ">
-				<div class="card text-white mb-3" style="background-color:#a3c2c2">
-        <div class="card-header">Ram yha pr tuje jo details dalni hai woh dal dena</div>
-					<div class="card-body"></div>
-					<h4 class="card-title"></h4>
-					<a class="btn text-white" href="requests.php">View</a>
-				</div>
-      </div>
+<!DOCTYPE html>
+<html>
 
-      <div class="col-sm-5">
-        <form action="" method="POST" style="border-style: outset;
-         padding : 20px 20px 20px 20px;border-radius:10px; background-color:#e6faff;">
+<head>
+  <meta charset="utf-8">
+  <title>Create an account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/css1.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+<body>
+<style>
+body{
+  text-align:center;
+  background-image:url("images/dish 4.jpg");
+}
+</style>
+        <h2 class="text-center" style="margin-top: 50px; color:white;" id="contact">Create an account</h2> 
+        <form action="" method="POST" style="padding : 20px 20px 20px 20px;border-radius:10px; 
+         margin :0px 400px 0px 400px; ">
           <div class="form-group" >
-            <input type="text" class="form-control" style="border-radius:20px;border:solid;" name="rname" 
-            placeholder="Enter your name" >
+            <input type="text" class="form-control" required style="border-radius:20px;border:solid;" name="rname" 
+            placeholder="Name" >
           </div>
           <div class="form-group">
-            <input class="form-control" type="email" name="remail" placeholder="E-mail"
+            <input class="form-control" type="email" name="remail" required placeholder="E-mail"
              style="border-radius:20px;border:solid;" >
           </div>
           <div class="form-group">
-            <select name="feils" id="feild" class="form-control" style="border-radius:20px;border:solid;">
+            <select name="feils" id="feild" class="form-control"  style="border-radius:20px;border:solid;">
               <option value="customer">Customer</option>
               <option value="cook">Cook</option>
             </select>
           </div>
             <div class="form-group">
-              <input type="password" name="rpassword" class="form-control" placeholder="Password" 
+              <input type="password" name="rpassword" class="form-control" required placeholder="Password" 
               id="rpassword"
              style="border-radius:20px;border:solid;">
             <!--- <img src="https://img.icons8.com/material-sharp/24/000000/visible.png">-->
            
           
-           <label class="mt-3">Show password</label>
+           <label class="mt-3" style="color:white;">Show password</label>
             <input class="pl-2" type="checkbox" onclick="myFunction()">
             <script>
               function myFunction() {
@@ -85,15 +66,15 @@ if(isset($_REQUEST['rsignup']))
             </script>
              </div>
           <div class="form-group">
-				<label class="checkbox-inline"><input type="checkbox" required> I accept all the <a href="#">
-          T&C*</a></label>
+				<b><label class="checkbox-inline" style="color:white;"><input type="checkbox" required> I accept all the <a style="color:red;" href="#">
+          T&C*</a></label></b>
 				
 			</div>
-          <button type="submit" class="mt-1" name="rsignup" 
-          style="border-radius:4px;border:none;padding: 14px 28px;background-color:#adebad">Sign up</button>
-            <?php  if(isset($regmsg)) {echo $regmsg;}?>
+          <button type="submit" class="mt-1 font-weight-bold" name="rsignup" 
+          style="border-radius:4px;border:none;padding: 14px 28px;background-color:#adebad">Sign Up</button>
         </form>
-      </div>	
-    </div>
-  </div>
+   
+    
+  </body>
+</html>
   
