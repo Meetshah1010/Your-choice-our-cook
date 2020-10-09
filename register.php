@@ -78,7 +78,12 @@ if(isset($_REQUEST['rsignup']))
           <a style="color:red;" href="#">T&C*</a></label></b>
         </div>
         <div class="form">
-          <button type="submit" class="mt-1 font-weight-bold" name="rsignup">Sign Up</button>
+          <button type="submit" class="mt-1 font-weight-bold" name="rsignup" onclick="myFunction()">Sign Up</button>
+          <script>
+            function myFunction() {
+            alert("You have succesfully registreted");
+            }
+              </script>
         </div>
       </form>
 </body>

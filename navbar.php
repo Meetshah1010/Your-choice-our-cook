@@ -18,9 +18,9 @@
                </div>
                <div class="menu">
                   <ul>
-                     <li><a href="#">Home</a></li>
-                     <li><a href="#">About</a></li>
-                     <li><a href="#">Explore</a></li>
+                     <li><a href="index.php">Home</a></li>
+                     <li><a href="about.php">About</a></li>
+                     <li><a href="product.php">Explore</a></li>
                      <li><a href="contact.php">Contact</a></li>
                      <li><a href="login.php">Log in</a></li>
                   </ul>
