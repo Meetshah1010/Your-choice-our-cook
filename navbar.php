@@ -13,9 +13,6 @@
      <div class="wrapper">
          <header>
             <nav>
-               <div class="menu-icon">
-                  <i class="fa fa-bars fa-2x"></i>
-               </div>
                <div class="logo">
                   LOGO
                </div>
@@ -25,7 +22,7 @@
                      <li><a href="#">About</a></li>
                      <li><a href="#">Explore</a></li>
                      <li><a href="contact.php">Contact</a></li>
-                     <li><a href="#login">Log in</a></li>
+                     <li><a href="login.php">Log in</a></li>
                   </ul>
                   <script>
                    $(document).ready(function() {

@@ -1,6 +1,27 @@
+<?php 
+include('connection.php');
+if(isset($_REQUEST['rsignup']))
+{
+	
+		$sql = "SELECT remail FROM register WHERE remail='".$_REQUEST['remail']."'";
+		$result = $conn->query($sql);
+		$rname = $_REQUEST['rname'];
+    $remail = $_REQUEST['remail'];
+    $post = $_REQUEST['post'];
+		$rpassword  = $_REQUEST['rpassword'];
+		$sql = "INSERT INTO register(rname,remail,rpost,rpassword) VALUES('$rname','$remail','$post','$rpassword')";
+		if($conn->query($sql)==TRUE)
+		{
+		echo "";
+		}
+		else
+		{
+			echo "";
+		}
+	}
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="utf-8">
 <title>Create an account</title>
@@ -16,6 +37,9 @@
   integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
   integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="register.css"/>
+	<script src="https://www.google.com/jsapi"></script>
 <body>
   <h2 class="text-center" style="margin-top: 50px; color:white;" id="contact">Create an account</h2> 
     <form action="" method="POST">
@@ -26,7 +50,7 @@
         <input class="form-control" type="email" name="remail" required placeholder="E-mail">
       </div>
       <div class="form">
-        <select name="feild" id="feild" class="form-control">
+        <select name="post" id="post" class="form-control">
           <option value="customer">Customer</option>
           <option value="cook">Cook</option>
         </select>
