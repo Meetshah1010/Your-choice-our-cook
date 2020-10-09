@@ -1,0 +1,15 @@
+
+body {
+  background: #fffcdd;
+  padding: 2.23em;
+}
+
+.title-pen {
+  color: #333;
+  font-family: "Coda", sans-serif;
+  text-align: center;
+}
+.title-pen span {
+  color: #55acee;
+}
+
