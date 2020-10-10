@@ -6,6 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Responsive Sticky Navbar</title>
       <link rel="stylesheet" href="css/navbar1.css">
+      <link rel="stylesheet" href="css/css1.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
    </head>
@@ -14,7 +15,7 @@
          <header>
             <nav>
                <div class="logo">
-                  LOGO
+                  <img id="LOGO" src="images\logo.png" alt="logo">
                </div>
                <div class="menu">
                   <ul>
