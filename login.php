@@ -1,21 +1,23 @@
 <?php
 include('connection.php');
-if(isset($_REQUEST['rsignin']))
+if(isset($_POST['rsignin']))
 {
-	$remail = mysqli_real_escape_string($conn,trim($_REQUEST['remail']));
-	$rpassword = mysqli_real_escape_string($conn,trim($_REQUEST['rpassword']));
+	$remail=$_POST["remail"];
+    $rpassword=$_POST["rpassword"];
 	$sql = "SELECT remail,rpassword FROM register WHERE remail = '".$remail."' AND rpassword = '".$rpassword."' limit 1 ";
 	$result = $conn->query($sql);
 	if ($result->num_rows == 1) 
 	{
-		$_SESSION['is_login'] = true;
-		$_SESSION['remail'] = $remail;
+		session_start();
+		$_SESSION["remail"]=$_POST["remail"];
+        $_SESSION["rpassword"]=$_POST["rpassword"];
+
 		echo "<script>location.href='profile.php';</script>";
 		exit;
 	}	
 	else
 	{
-		echo "Failed";
+		echo "";
 	}
 }
 ?>
@@ -51,7 +53,7 @@ if(isset($_REQUEST['rsignin']))
 <!-- chat bot testing<iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/e1e572b0-76dd-406e-8ed1-e3e1878cffd8"></iframe>-->
  <div class="container" id="container">
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form action="" method="POST">
 			<h1>Sign in</h1>
 			<input type="email" name="remail" placeholder="Email" required/>
       <input type="password" name="rpassword" placeholder="Password" required/>
