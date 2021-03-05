@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2020 at 06:43 PM
+-- Generation Time: Oct 30, 2020 at 08:12 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -48,7 +48,9 @@ INSERT INTO `register` (`id`, `rname`, `remail`, `rmob`, `rpost`, `rpassword`) V
 (6, 'Arjun ', 'arjun123@gmail.com', 0, 'cook', 'arjun'),
 (7, 'Arjun vankani', 'Vankani@gmail.com', 0, 'cook', '12345'),
 (8, 'arjun', 'Vankani@gmail.com', 0, 'cook', '1234'),
-(9, 'Meet shah ', 'mshah5225@gmail.com', 123456789, 'customer', '1234');
+(9, 'Meet shah ', 'mshah5225@gmail.com', 123456789, 'customer', '1234'),
+(10, 'Meet shah ', 'mshah5225@gmail.com', 0, 'cook', '123'),
+(11, 'user', 'user@gmail.com', 0, 'customer', '123');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +70,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

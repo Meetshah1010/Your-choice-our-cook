@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <link rel="stylesheet" href="register.css">
+       <script src="register.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>Registration</title>
+    </head>
+    <body>
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+*:focus {
+  outline: none;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #DE6262;
+background: linear-gradient(to bottom, #FFB88C, #DE6262); 
+
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.login-box {
+  position: relative;
+  top: 0px;
+  margin: 1% auto;
+  width: 1000px;
+  height: 700px;
+background-color: #fff;
+/*background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+*/
+
+/*  background: #FFF;
+*/  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.left {
+  position: relative;
+  top: 8px;
+  left: 1px;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 500px;
+  height: 290px;
+}
+
+
+.or {
+  position: absolute;
+  top: 330px;
+  left: 490px;
+  width: 50px;
+  height: 50px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  line-height: 50px;
+  text-align: center;
+}
+
+.right {
+  position: absolute;
+  top: 180px;
+  left: 550px;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 450px;
+  height: 400px;
+
+/*  background: url('https://goo.gl/YbktSj');
+*/  background-size: cover;
+  background-position: center;
+  font-weight: 20px;
+  border-radius: 0 4px 2px 0;
+}
+
+.right .loginwith {
+  display: block;
+  margin-bottom: 30px;
+  font-size: 25px;
+  color: #000;
+  text-align: center;
+}
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;   
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+.btn-google {
+    background-color: #42AEEC;
+    color: #fff;
+}
+
+        </style>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="login-box" style="border-radius: 2px;border-color: #000;">
+    <div class="left">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+    <h6 style="color: red;">All fields are Required</h6>
+	<br>
+	<form action="register.php" method="POST">
+
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="rname" id="rname" class="form-control" placeholder="Full name" required type="text">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		</div>
+        <input name="remail" id="remail" class="form-control" placeholder="Email address" required type="email">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		</div>
+    	<input name="rmob" id="rmob" onchange="varifyMobile()" class="form-control" placeholder="Phone number" required type="text">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-map-marker" aria-hidden="true"></i> </span>
+		</div>
+        <input name="rlandmark" id="rlandmark" class="form-control" placeholder="Enter nearest landmark" required
+         type="text">
+	</div> <!-- form-group end.// -->
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input name="rpass" id="rpass" onchange="varifyPassword()" class="form-control" placeholder="Create password" required type="password">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input name="repass" id="repass" onchange="varifyPasswordmatching()" class="form-control" onchange="" placeholder="Confirm Password" required type="password">
+        &nbsp;<br>
+        <h6 style="color: red;">Password should conatin 8 to 15 characters that should include at "least one lowercase letter", "one uppercase letter", "one numeric digit" & "one special character"</h6>
+    </div> <!-- form-group// -->  
+
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="">Show password</span>    
+        </div>
+        <input class="ml-2 mt-1" type="checkbox" onclick="showPassword()">
+    </div>
+
+    <div class="form-group input-group">
+        <b><label class="checkbox-inline"><input onmousemove="varifyPassword(),varifyMobile()" type="checkbox" required> I accept all the 
+        <a class="primary" href="#">T&C*</a></label></b>
+    </div>    
+
+    <div class="form-group">
+        <button name="rsignup" type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+    </div> <!-- form-group// -->      
+    <p class="text-center">Have an account? <a href="../index/index.html">Log In</a> </p>
+</form>
+</article>
+</div>
+
+<div class="right">
+
+    <h4 class="loginwith" >Sign in with<br/>social network</h4>
+    <p>
+        <a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>   Login via Twitter</a>
+        <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+        <a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>   Login via Google</a>
+
+    </p>
+</div>
+
+<div class="or">OR</div>
+
+</div> <!-- card.// -->
+
+<!--container end.//-->
+    </body>
+</html>

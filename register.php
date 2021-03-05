@@ -38,9 +38,13 @@ if(isset($_REQUEST['rsignup']))
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
   integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="register.css"/>
+	<link rel="stylesheet" type="text/css" href="css/register.css"/>
 	<script src="https://www.google.com/jsapi"></script>
-<body>
+<body style="background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  background-repeat: no-repeat;
+  background-size: cover;">
   <h2 class="text-center" style="margin-top: 50px; color:white;" id="contact">Create an account</h2> 
     <form action="" method="POST">
       <div class="form" >
@@ -75,7 +79,7 @@ if(isset($_REQUEST['rsignup']))
        </div>
         <div class="form">
           <b><label class="checkbox-inline" style="color:white;"><input type="checkbox" required> I accept all the 
-          <a style="color:red;" href="#">T&C*</a></label></b>
+          <a style="color:blue;" href="#">T&C*</a></label></b>
         </div>
         <div class="form">
           <button type="submit" class="mt-1 font-weight-bold" name="rsignup" onclick="myFunction()">Sign Up</button>
