@@ -8,16 +8,27 @@ if(isset($_REQUEST['rsignup']))
     $rmob = $_REQUEST['rmob'];
     $rlandmark = $_REQUEST['rlandmark'];
 	$rpass  = $_REQUEST['rpass'];
-	$sql = "INSERT INTO register(rname,remail,rmob,rlandmark,rpass) VALUES('$rname','$remail','$rmob','$rlandmark',
-    '$rpass')";
-	if($conn->query($sql)==TRUE)
+	$check = "SELECT remail FROM register WHERE remail = '$remail'";
+	$res = $conn->query($check);
+	if($res->num_rows!=0)
 	{
-		echo "<script>window.alert('Success on your way to delecious journey has begun');</script>";
-	    echo "<script>location.href='../index/index.html';</script>";
+		echo "<script>window.alert('Sorry! Email id is already registreted');</script>";
+		echo "<script>location.href='../index/index.html';</script>";
 	}
 	else
 	{
-		echo "<script>window.alert('Sorry ! We are unable to accept your request');</script>";
+
+		$sql = "INSERT INTO register(rname,remail,rmob,rlandmark,rpass) VALUES('$rname','$remail','$rmob','$rlandmark',
+		'$rpass')";
+		if($conn->query($sql)==TRUE)
+		{
+			
+			echo "<script>location.href='../index/index.html';</script>";
+		}
+		else
+		{
+			echo "<script>window.alert('Sorry ! We are unable to accept your request');</script>";
+		}
 	}
 }
 ?>
