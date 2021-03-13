@@ -2,7 +2,7 @@
 $db_host="localhost";
 $db_user="root";
 $db_password="";
-$db_name="de";
+$db_name="database";
 $db_port="3306";
 
 //create connection
