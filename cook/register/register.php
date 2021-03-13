@@ -1,10 +1,9 @@
 <?php
 include('../../connection.php');
-session_start();
-if(isset($_REQUEST['rsignup']))
-{
-	
-	$crname = $_REQUEST['crname'];
+if (isset($_POST["rsignup"])) { 
+    $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));    
+    
+    $crname = $_REQUEST['crname'];
 	$crmob = $_REQUEST['crmob'];
 	$cremail = $_REQUEST['cremail'];
 	$crarea = $_REQUEST['crarea'];
@@ -12,33 +11,29 @@ if(isset($_REQUEST['rsignup']))
 	
 	$crspec = $_REQUEST['crspec'];
 	$crpass = $_REQUEST['crpass'];
-	
-	
-
-		// Get name of images
-		$Get_image_name = $_FILES['file']['name'];
-		  
-		// image Path
-		$image_Path = "uploads/".basename($Get_image_name);
-	
-		$ins = "INSERT INTO images (file_name, uploaded_on) VALUES ('$Get_image_name', NOW())";
-		
-	  // Run SQL query
-		mysqli_query($conn, $ins);
-	
-		if (move_uploaded_file($_FILES['file']['tmp_name'], $image_Path)) {
-			echo "Your Image uploaded successfully";
-		}else{
-			echo  "Not Insert Image";
-		}
-		
-	
-		$sql = "INSERT INTO cook_request(crname,crmob,cremail,crarea,crgender,crspec,crpass) VALUES('$crname','$crmob','$cremail','$crarea','$crgender','$crspec','$crpass')";
-		if($conn->query($sql)==TRUE)
+    #$img = "INSERT INTO images (img,mail) VALUES('$file','$cremail')";
+	$sql = "INSERT INTO cook_request(crname,crmob,cremail,crarea,crgender,crspec,crpass) VALUES('$crname','$crmob','$cremail','$crarea','$crgender','$crspec','$crpass')";
+		if($conn->query($sql) ==TRUE)
 		{
-			echo "inserted successfully";
-		}else{
-			echo "failed";
+			$test = "SELECT crid FROM cook_request WHERE cremail = '$cremail'";
+			$result = $conn->query($test);
+			if($result->num_rows>0)
+			{
+				while($row = $result->fetch_assoc())
+				{
+					$id=$row['crid'];
+					$img = "INSERT INTO images (id,img,mail) VALUES('$id','$file','$cremail')";
+					if($conn->query($img)==TRUE)
+					{
+						echo "Inserted Successfully";
+					}
+					else 
+					{
+						$delete  = "DELETE FROM cook_request WHERE cremail = '$cremail'";
+						echo "Failed";
+					}
+				}
+			}
 		}
 }
 ?>

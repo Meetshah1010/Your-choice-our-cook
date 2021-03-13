@@ -55,6 +55,7 @@ else
 				echo '<table class="table text-center">';
 					echo '<thead>';
 						echo '<tr>';
+							echo '<th>Cook image</th>';
 							echo '<th>Cook ID</th>';
 							echo '<th>Name</th>';
 							echo '<th>Phone number</th>';
@@ -68,6 +69,10 @@ else
 					while($row = $result->fetch_assoc())
 					{
 						echo '<tr>';
+						$img = "SELECT img FROM images WHERE id= {$row['cid']} ";
+						$res = $conn->query($img);
+						$col = $res->fetch_assoc();
+						echo '<td><img style="border:1px solid black;" class="zoomA" src="data:image/jpeg;base64,'.base64_encode($col['img'] ).'" />  </td>';
 							echo '<td>'.$row['cid'].'</td>';
 							echo '<td>'.$row['cname'].'</td>';
 							echo '<td>'.$row['cmob'].'</td>';
@@ -93,7 +98,8 @@ else
 			if(isset($_REQUEST['deletet']))
 				{	
 					$sql = "DELETE FROM cook WHERE cid={$_REQUEST['id']}";
-					if($conn->query($sql))
+					$img = "DELETE FROM images WHERE id={$_REQUEST['id']}";
+					if(($conn->query($sql)==TRUE) && ($conn->query($img)==TRUE))
 					{
 						echo '<meta http-equiv="referesh" content="0;URL=?deleted"/>';
 					}
@@ -106,7 +112,6 @@ else
 		</div>
 		<!--  end 2nd column-->
 	</div><!-- end row-->
-</div><!--end container-->
-          
+</div><!--end container-->      
     </body>
 </html>

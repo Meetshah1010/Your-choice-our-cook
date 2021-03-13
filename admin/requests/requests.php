@@ -49,6 +49,7 @@ else
 				{
 					while($row = $result->fetch_assoc())
 					{
+						$imgid = $row['crid'];
 						echo '<div class="card mt-5 mx-5">';
 							echo '<div class="card-header">';
 								echo 'Request ID:'.$row['crid'];	
@@ -69,13 +70,15 @@ else
 							echo '</h5>';
 						echo '</div>';
 						echo '<div class="col-md-3">';
-							#echo '<img src="data:image/jpeg;base64,'.base64_encode($row['crimage'] ).'" height="200" width="200"/>';
-							/*$img = mysqli_query($conn, "SELECT * FROM images");
-     						while ($row = mysqli_fetch_array($img)) {     
-		
-      							echo "<img src='uploads/".$row['file_name']."' >";   
-							 } 	 */
+						$img = "SELECT * FROM images WHERE id = '$imgid' ";
+						$resu = $conn->query($img);
+						if($resu->num_rows > 0)
+						{
+							while($col = $resu->fetch_assoc())
+							{
+							 echo '<img style="border-radius:100px;" src="data:image/jpeg;base64,'.base64_encode($col['img'] ).'" height="200" width="200" class="img-thumnail" />  ';
 							echo '<div class="float-right">';
+							
 								echo '<form action="" method="POST">';
                                     echo '<input type="hidden" name="crid" value='.$row["crid"].'>';
 									echo '<input type="hidden" name="crname" value='.$row["crname"].'>';
@@ -85,7 +88,6 @@ else
                                     echo '<input type="hidden" name="crgender" value='.$row["crgender"].'>';
                                     echo '<input type="hidden" name="crspec" value='.$row["crspec"].'>';
                                     echo '<input type="hidden" name="crpass" value='.$row["crpass"].'>';
-                                    echo '<inupt type="hidden" name="crimage" src="data:image/jpeg;base64,'.base64_encode($row['crimage'] ).'" height="200" width="200"/>';
 									echo '<input type="submit" class="btn btn-danger mt-2 " value="Accept" name="Accept">'; 
 									echo '<input type="submit" class="btn btn-dark mt-2 ml-2" value="Delete" name="Delete">'; 
 								echo '</form>';
@@ -93,6 +95,9 @@ else
 							echo '</div>';
 						echo '</div>';
 						echo '</div>';
+					}
+				}
+				
 					}
 				}
                 else{
@@ -103,8 +108,8 @@ else
 			</div>
 		<!--  end  2nd column-->
 		<?php
-		if(isset($_REQUEST['Accept']))
-		{ 
+		if(isset($_POST['Accept']))
+		{  
 			$cid = $_REQUEST['crid'];
 			$cname = $_REQUEST['crname'];
 	        $cmob = $_REQUEST['crmob'];
@@ -113,19 +118,34 @@ else
 	        $cgender = $_REQUEST['crgender'];
 	        $cspec = $_REQUEST['crspec'];
 	        $cpass = $_REQUEST['crpass'];
-	
 		    $sql = "INSERT INTO cook(cname,cmob,cemail,carea,cgender,cspec,cpass) VALUES('$cname','$cmob','$cemail','$carea','$cgender','$cspec','$cpass')";
+			#$img = "INSERT INTO cimages(cimg) VALUES ('$file')";
 		if($conn->query($sql)==TRUE)
 		{
-            $del = "DELETE FROM cook_request WHERE crid = {$_REQUEST['crid']}";
-            if($conn->query($del)==TRUE)
-            {
-                echo "<script>window.alert('Inserted successfully');</script>";
-                
-            }
-            else{
-                echo "<script>window.alert('Inserted successfully but problem in deleting from requests')</script>";
-            }
+			$test = "SELECT cid FROM cook WHERE cname='$cname'";
+			$result = $conn->query($test);
+			if($result->num_rows>0)
+			{
+				while($col= $result->fetch_assoc())
+				{
+					$cid=$col['cid'];
+					$test2="UPDATE images SET id = '$cid' WHERE mail = '$cemail'";
+					if($conn->query($test2)==TRUE)
+					{
+						$del = "DELETE FROM cook_request WHERE crid = {$_REQUEST['crid']}";
+						if($conn->query($del)==TRUE)
+						{
+
+							echo "<script>window.alert('Inserted successfully all');</script>";
+						}
+						else
+						{
+							echo "<script>window.alert('Inserted successfully but problem in set imageid')</script>";
+						}
+					}
+					
+				}
+			}
 		}else{
 			echo "failed";
 		}
@@ -133,8 +153,9 @@ else
 		}
 		if(isset($_REQUEST['Delete']))
 		{
-			$sql = "DELETE FROM cook_request WHERE crid = {$_REQUEST['crid']}";
-			if($conn->query($sql) == TRUE)
+			$del = "DELETE FROM cook_request WHERE crid = {$_REQUEST['crid']}";
+			$delimg = "DELETE FROM images WHERE id = {$_REQUEST['crid']} ";
+			if(($conn->query($del)==TRUE) && ($conn->query($delimg)==TRUE))
 			{
 			echo '<meta http-equiv="refersh" content = "0;URL=?closed"/>';
 			}

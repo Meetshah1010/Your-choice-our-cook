@@ -31,17 +31,19 @@ else
 <div class="container" style="margin-top: 10px;"></div>
 <div class="row justify-content-center align-items-center">
 		<div class="col-sm-5 jumbotron ">
-			<h3 class="text-center">Update Chef Details</h3>
+			<h3 class="text-center">Chef Details</h3>
 			<?php
-
 			if(isset($_REQUEST['editt']))
 			{ 	
 				
 				$sql = "SELECT * FROM cook WHERE cid = {$_REQUEST['id']}";
 				$result = $conn->query($sql);
-				$row = $result->fetch_assoc();
-				
+				$row = $result->fetch_assoc();	
 		}
+			$img = "SELECT img FROM images WHERE id= {$_REQUEST['id']} ";
+			$res = $conn->query($img);
+			$col = $res->fetch_assoc();
+			echo '<img style="border-radius:100px;" src="data:image/jpeg;base64,'.base64_encode($col['img'] ).'" height="200" width="200" class="img-thumnail" />  ';
 	?>
 			<form action="updatecook.php" method="POST">
 				<div>
